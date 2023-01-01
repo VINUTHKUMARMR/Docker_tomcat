@@ -1,7 +1,7 @@
-FROM tomcat:8.0-alpine
-WORKDIR /home/ubuntu/workspace/docker_tom
-
-ADD sample.war /usr/local/tomcat/webapps/
-
+FROM tomcat
+WORKDIR /opt/tomcat
+ADD https://downloads.apache.org/tomcat/tomcat-9/v9.0.70/bin/apache-tomcat-9.0.70.tar.gz .
+RUN tar -zvxf apache-tomcat-9.0.70.tar.gz
+RUN mv apache-tomcat-9.0.70/* /opt/tomcat && cd /opt/tomcat/bin
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
