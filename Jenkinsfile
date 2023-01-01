@@ -15,7 +15,7 @@ pipeline{
                   
                   docker build -t daemon/tomcat:$BUILD_NUMBER .
                   docker tag daemon/tomcat:$BUILD_NUMBER vinuthkumarmr/docker_tomcat:$BUILD_NUMBER
-                  docker run -it -d --name newcon3 -p 8091:8080 vinuthkumarmr/docker_tomcat:$BUILD_NUMBER
+                  docker run -it -d --name newcon4 -p 8091:8080 vinuthkumarmr/docker_tomcat:$BUILD_NUMBER
                   
                   '''
             }
