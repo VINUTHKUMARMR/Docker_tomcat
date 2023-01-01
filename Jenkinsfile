@@ -14,8 +14,8 @@ pipeline{
                 sh '''
                   
                   docker build -t daemon/tomcat:$BUILD_NUMBER .
-                  docker tag daemon/tomcat:$BUILD_NUMBER vinuthkumarmr/mypractice:$BUILD_NUMBER
-                  docker run -it -d --name newcon3 -p 8091:8080 vinuthkumarmr/mypractice:$BUILD_NUMBER
+                  docker tag daemon/tomcat:$BUILD_NUMBER vinuthkumarmr/docker_tomcat:$BUILD_NUMBER
+                  docker run -it -d --name newcon3 -p 8091:8080 vinuthkumarmr/docker_tomcat:$BUILD_NUMBER
                   
                   '''
             }
@@ -27,7 +27,7 @@ pipeline{
         }
         stage('push image to hub'){
             steps{
-                 sh 'docker push vinuthkumarmr/mypractice:$BUILD_NUMBER'
+                 sh 'docker push vinuthkumarmr/docker_tomcat:$BUILD_NUMBER'
             }
         }
     }
