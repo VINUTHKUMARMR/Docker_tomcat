@@ -2,6 +2,6 @@ FROM tomcat
 WORKDIR /opt/tomcat
 ADD https://downloads.apache.org/tomcat/tomcat-9/v9.0.70/bin/apache-tomcat-9.0.70.tar.gz .
 RUN tar -zvxf apache-tomcat-9.0.70.tar.gz
-RUN mv apache-tomcat-9.0.70/* /opt/tomcat && cd /opt/tomcat/bin
+RUN mkdir tomcat9 mv apache-tomcat-9.0.70/* /opt/tomcat9 && cd /opt/tomcat9/bin
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
